@@ -6,6 +6,14 @@ export default function ScoreBoard() {
     const [scoreOne, setScoreOne] = useState(0);
     const [scoreTwo, setScoreTwo] = useState(0);
 
+    function handleScoreChange(newScore, updateHook) {
+        if (newScore <= 0) {
+            updateHook(0);
+        } else {
+            updateHook(newScore);
+        }
+    }
+
     return (
         <div className="container">
             <div className="flex-1" />
@@ -13,8 +21,8 @@ export default function ScoreBoard() {
                 <ScorePanel
                     score={scoreOne}
                     color="blue"
-                    onIncrement={() => setScoreOne(scoreOne + 1)}
-                    onDecrement={() => setScoreOne(scoreOne - 1)}
+                    onIncrement={() => handleScoreChange(scoreOne + 1, setScoreOne)}
+                    onDecrement={() => handleScoreChange(scoreOne - 1, setScoreOne)}
                 />
             </div>
             <div className="controls">
@@ -24,8 +32,8 @@ export default function ScoreBoard() {
                 <ScorePanel
                     score={scoreTwo}
                     color="red"
-                    onIncrement={() => setScoreTwo(scoreTwo + 1)}
-                    onDecrement={() => setScoreTwo(scoreTwo - 1)}
+                    onIncrement={() => handleScoreChange(scoreTwo + 1, setScoreTwo)}
+                    onDecrement={() => handleScoreChange(scoreTwo - 1, setScoreTwo)}
                 />
             </div>
             <div className="flex-1" />
