@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ScorePanel from './ScorePanel';
+import Timer from './Timer';
 
 export default function ScoreBoard() {
     const [scoreOne, setScoreOne] = useState(0);
@@ -16,7 +17,9 @@ export default function ScoreBoard() {
                     onDecrement={() => setScoreOne(scoreOne - 1)}
                 />
             </div>
-            <div className="flex-3" />
+            <div className="controls">
+                <Timer />
+            </div>
             <div className="flex-3">
                 <ScorePanel
                     score={scoreTwo}
@@ -30,6 +33,10 @@ export default function ScoreBoard() {
                 div.container {
                     display: flex;
                     flex-direction: row;
+                }
+                div.controls {
+                    flex: 3;
+                    margin: 0 2vh 0 2vh;
                 }
                 div.flex-3 {
                     flex: 3;

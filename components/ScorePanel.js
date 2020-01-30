@@ -18,11 +18,13 @@ export default function ScorePanel({ score, color, onIncrement, onDecrement }) {
                     font-size: 8em;
                     text-align: center;
                     pointer-events: none;
+                    user-select: none;
                 }
                 div.input {
                     border: 1px solid lightgray;
                     font-size: 4em;
                     z-index: 9;
+                    user-select: none;
                 }
                 div.flair {
                     background: ${color};
