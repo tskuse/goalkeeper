@@ -16,8 +16,7 @@ export default function ScoreBoard() {
 
     return (
         <div className="container">
-            <div className="flex-1" />
-            <div className="flex-4">
+            <div className="flex-3">
                 <ScorePanel
                     score={scoreOne}
                     color="blue"
@@ -28,7 +27,7 @@ export default function ScoreBoard() {
             <div className="controls">
                 <Timer />
             </div>
-            <div className="flex-4">
+            <div className="flex-3">
                 <ScorePanel
                     score={scoreTwo}
                     color="red"
@@ -36,11 +35,11 @@ export default function ScoreBoard() {
                     onDecrement={() => handleScoreChange(scoreTwo - 1, setScoreTwo)}
                 />
             </div>
-            <div className="flex-1" />
             <style jsx>{`
                 div.container {
                     display: flex;
                     flex-direction: row;
+                    padding: 0 2vh 0 2vh;
                 }
                 div.controls {
                     flex: 3;
@@ -51,9 +50,6 @@ export default function ScoreBoard() {
                 }
                 div.flex-4 {
                     flex: 4;
-                }
-                div.flex-1 {
-                    flex: 1;
                 }
             `}</style>
         </div>

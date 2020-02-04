@@ -42,6 +42,7 @@ export default function Timer() {
                     display: flex;
                     flex-direction: column;
                     background-color: white;
+                    margin: 0 2vh 0 2vh;
                 }
                 div.split {
                     flex: 1;
