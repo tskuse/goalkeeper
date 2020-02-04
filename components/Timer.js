@@ -40,13 +40,13 @@ export default function Timer() {
             <style jsx>{`
                 div.container {
                     display: flex;
-                    flex-direction: row;
+                    flex-direction: column;
                     background-color: white;
                 }
                 div.split {
                     flex: 1;
                     text-align: center;
-                    font-size: 2em;
+                    font-size: 3em;
                     border: 1px solid gray;
                     user-select: none;
                 }

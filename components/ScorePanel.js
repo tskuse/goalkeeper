@@ -15,15 +15,14 @@ export default function ScorePanel({ score, color, onIncrement, onDecrement }) {
                     position: absolute;
                     width: 100%;
                     font-family: Mono;
-                    font-size: 8em;
+                    font-size: 10em;
                     text-align: center;
                     pointer-events: none;
                     user-select: none;
                 }
                 div.input {
                     border: 1px solid lightgray;
-                    font-size: 4em;
-                    z-index: 9;
+                    font-size: 5em;
                     user-select: none;
                 }
                 div.flair {

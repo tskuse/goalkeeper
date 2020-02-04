@@ -17,7 +17,7 @@ export default function ScoreBoard() {
     return (
         <div className="container">
             <div className="flex-1" />
-            <div className="flex-3">
+            <div className="flex-4">
                 <ScorePanel
                     score={scoreOne}
                     color="blue"
@@ -28,7 +28,7 @@ export default function ScoreBoard() {
             <div className="controls">
                 <Timer />
             </div>
-            <div className="flex-3">
+            <div className="flex-4">
                 <ScorePanel
                     score={scoreTwo}
                     color="red"
@@ -48,6 +48,9 @@ export default function ScoreBoard() {
                 }
                 div.flex-3 {
                     flex: 3;
+                }
+                div.flex-4 {
+                    flex: 4;
                 }
                 div.flex-1 {
                     flex: 1;
