@@ -18,12 +18,12 @@ export default function ScorePanel({ score, color, onIncrement, onDecrement }) {
             </div>
             <div className="flair">&nbsp;</div>
             <style jsx>{`
-                div.container {
+                .container {
                     border: 1px solid gray;
                     background-color: white;
                     position: relative;
                 }
-                div.score {
+                .score {
                     position: absolute;
                     width: 100%;
                     font-family: Mono;
@@ -32,12 +32,12 @@ export default function ScorePanel({ score, color, onIncrement, onDecrement }) {
                     pointer-events: none;
                     user-select: none;
                 }
-                div.input {
+                .input {
                     border: 1px solid lightgray;
                     font-size: 5em;
                     user-select: none;
                 }
-                div.flair {
+                .flair {
                     background: ${color};
                     font-size: 2em; 
                 }

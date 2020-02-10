@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 function transformToTime(secondsRemaining) {
     const date = new Date(secondsRemaining * 1000);
@@ -7,14 +7,11 @@ function transformToTime(secondsRemaining) {
     return `${minutes}:${seconds}`;
 }
 
-export default function Timer() {
-    const [isPaused, setPaused] = useState(true);
-    const [secondsRemaining, setSecondsRemaining] = useState(300);
-
+export default function Timer({ isPaused, secondsRemaining, dispatch }) {
     useEffect(() => {
         if (!isPaused) {
             const interval = setInterval(() => {
-                setSecondsRemaining(secondsRemaining => secondsRemaining - 1)
+                dispatch({type: 'DECREASE_SECONDS_REMAINING'});
             }, 1000);
             return () => clearInterval(interval);
         }
@@ -22,10 +19,18 @@ export default function Timer() {
 
     useEffect(() => {
         if (secondsRemaining <= 0) {
-            setPaused(true);
-            setSecondsRemaining(0);
+            dispatch({type: 'PAUSE'});
+            dispatch({type: 'SET_SECONDS_REMAINING', seconds: 0});
         }
     }, [secondsRemaining]);
+
+    function handlePlayPause() {
+        if (isPaused) {
+            dispatch({type: 'PLAY'});
+        } else {
+            dispatch({type: 'PAUSE'});
+        }
+    }
 
     return (
         <div className="container">
@@ -33,20 +38,20 @@ export default function Timer() {
                 {transformToTime(secondsRemaining)}
             </div>
             <div className="split"
-                 onClick={() => setPaused(!isPaused)}
-                 onTouchStart={() => setPaused(!isPaused)}
+                 onClick={handlePlayPause}
+                 onTouchStart={handlePlayPause}
                  onTouchEnd={event => event.preventDefault()}
             >
                 {isPaused ? 'Play' : 'Pause'}
             </div>
             <style jsx>{`
-                div.container {
+                .container {
                     display: flex;
                     flex-direction: column;
                     background-color: white;
                     margin: 0 2vh 0 2vh;
                 }
-                div.split {
+                .split {
                     flex: 1;
                     text-align: center;
                     font-size: 3em;

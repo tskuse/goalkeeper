@@ -1,10 +1,11 @@
 import { action } from '@storybook/addon-actions';
+
 import ScorePanel from './ScorePanel';
 
 export default {
     component: ScorePanel,
     title: 'ScorePanel'
-}
+};
 
 export const Red = () => (
     <ScorePanel
@@ -14,6 +15,7 @@ export const Red = () => (
         onDecrement={action('onDecrement')}
     />
 );
+
 export const Blue = () => (
     <ScorePanel
         score="0"
