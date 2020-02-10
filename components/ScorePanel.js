@@ -2,8 +2,20 @@ export default function ScorePanel({ score, color, onIncrement, onDecrement }) {
     return (
         <div className="container">
             <div className="score">{score}</div>
-            <div className="input" onClick={onIncrement}>&nbsp;</div>
-            <div className="input" onClick={onDecrement}>&nbsp;</div>
+            <div className="input"
+                 onClick={onIncrement}
+                 onTouchStart={onIncrement}
+                 onTouchEnd={event => event.preventDefault()}
+            >
+                &nbsp;
+            </div>
+            <div className="input"
+                 onClick={onDecrement}
+                 onTouchStart={onDecrement}
+                 onTouchEnd={event => event.preventDefault()}
+            >
+                &nbsp;
+            </div>
             <div className="flair">&nbsp;</div>
             <style jsx>{`
                 div.container {

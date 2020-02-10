@@ -34,6 +34,8 @@ export default function Timer() {
             </div>
             <div className="split"
                  onClick={() => setPaused(!isPaused)}
+                 onTouchStart={() => setPaused(!isPaused)}
+                 onTouchEnd={event => event.preventDefault()}
             >
                 {isPaused ? 'Play' : 'Pause'}
             </div>
